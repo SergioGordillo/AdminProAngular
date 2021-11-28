@@ -7,15 +7,21 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { GraphOneComponent } from './pages/graph-one/graph-one.component';
 import { Page404Component } from './pages/page404/page404.component';
+import { PagesComponent } from './pages/pages.component';
 
 
 const routes: Routes = [
-  {path: 'dashboard', component: DashboardComponent},
+  {path:'', component: PagesComponent, children: [
+    {path: 'dashboard', component: DashboardComponent},
+    {path: 'graph-one', component: GraphOneComponent},
+    {path: 'progress', component: ProgressComponent},
+    {path:'', redirectTo: '/dashboard', pathMatch: 'full'}
+  ]},
+
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'progress', component: ProgressComponent},
-  {path: 'graph-one', component: GraphOneComponent},
-  {path:'', redirectTo: '/dashboard', pathMatch: 'full'},
+  
+
   {path:'**', component: Page404Component}
 ];
 
