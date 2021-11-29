@@ -1,32 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagesRoutingModule } from './pages/pages.routing';
+import { AuthRoutingModule } from './auth/auth.routing';
 
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { GraphOneComponent } from './pages/graph-one/graph-one.component';
-import { Page404Component } from './pages/page404/page404.component';
-import { PagesComponent } from './pages/pages.component';
+import { Page404Component } from './page404/page404.component';
 
+const routes: Routes = [  
 
-const routes: Routes = [
-  {path:'', component: PagesComponent, children: [
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'graph-one', component: GraphOneComponent},
-    {path: 'progress', component: ProgressComponent},
-    {path:'', redirectTo: '/dashboard', pathMatch: 'full'}
-  ]},
-
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  
-
+  // path: 'login', AuthRoutingModule
+  // path: 'dashboard', PagesRoutingModule
+  {path: '', redirectTo:'/dashboard', pathMatch: 'full'},
   {path:'**', component: Page404Component}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    PagesRoutingModule,
+    AuthRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
