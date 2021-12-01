@@ -11,10 +11,11 @@ import { Page404Component } from './page404/page404.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    Page404Component
+    Page404Component,
   ],
   imports: [
     BrowserModule,
