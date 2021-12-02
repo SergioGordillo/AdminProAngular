@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
@@ -8,13 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ProgressBarComponent  {
 
-  progress: number = 70;
+  @Input() progress: number = 70;
 
   constructor() { }
-
-  get getPercentage() {
-    return `${this.progress}%`;
-  }
 
   changeValue(value: number){
 
