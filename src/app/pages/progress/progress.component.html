@@ -6,7 +6,14 @@
                 <div class="progress m-t-20">
                     <div class="progress-bar bg-primary progress-bar-striped active"
                          style="height:5px;"
-                         [style.width]="getPercentage"
+                         [style.width]="getPercentage1"
+                         role="progressbar"> 
+                    </div>
+                </div>
+                <div class="progress m-t-20">
+                    <div class="progress-bar bg-info progress-bar-striped active"
+                         style="height:5px;"
+                         [style.width]="getPercentage2"
                          role="progressbar"> 
                     </div>
                 </div>
@@ -19,8 +26,10 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-progress-bar [progress]="14"></app-progress-bar>
-                <app-progress-bar></app-progress-bar>
+                <app-progress-bar 
+                     [progress]="progress1"
+                     (outputProgress)="progress1 = $event">
+                </app-progress-bar> 
             </div>
         </div>
     </div>
@@ -28,7 +37,10 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                2
+                <app-progress-bar 
+                        [progress]="progress2"
+                        (outputProgress)="progress2 = $event">
+           </app-progress-bar> 
             </div>
         </div>
     </div>
