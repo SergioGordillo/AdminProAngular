@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Striped Progress bar </h4>
+                <h4 class="card-title">Striped Progress bar</h4>
                 <div class="progress m-t-20">
                     <div class="progress-bar bg-primary progress-bar-striped active"
                          style="height:5px;"
@@ -39,7 +39,8 @@
             <div class="card-body">
                 <app-progress-bar 
                         [progress]="progress2"
-                        (outputProgress)="progress2 = $event">
+                        (outputProgress)="progress2 = $event"
+                        [btnClass]="'btn-info'">
            </app-progress-bar> 
             </div>
         </div>
